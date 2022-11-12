@@ -1,0 +1,120 @@
+:root {
+  --primary-color: #10152a;
+  --secondary-color: #30407e;
+  --primary-color-blur: rgba(16, 21, 42, 0.5);
+  --neumo-shadow-dark: #060811;
+  --neumo-shadow-light: #1a2243;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 3vh;
+  padding-top: 15vh;
+  background-color: var(--primary-color);
+  user-select: none;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+#drum-machine {
+  background-color: var(--primary-color);
+  box-shadow: 8px 8px 16px var(--neumo-shadow-dark),
+    -8px -8px 16px var(--neumo-shadow-light);
+  color: white;
+  border-radius: 10%;
+  width: 70vh;
+  height: 70vh;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.pad-bank {
+  flex: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 13vh);
+  margin-top: 10vh;
+  gap: 2vh;
+}
+
+.drum-pad {
+  width: 100%;
+  height: 100%;
+  font-size: inherit;
+  text-align: center;
+  line-height: 12vh;
+  border-radius: 50%;
+  border-style: none;
+  background-color: var(--primary-color);
+  color: inherit;
+  font-weight: bold;
+}
+
+.drum-pad-pressed {
+  box-shadow: 4px 4px 8px var(--neumo-shadow-dark) inset,
+    -4px -4px 8px var(--neumo-shadow-light) inset;
+  transition: box-shadow 0.1s;
+}
+
+.drum-pad:hover {
+  cursor: pointer;
+}
+
+.display-panel {
+  margin-top: 5vh;
+  border-radius: 20px;
+  margin-bottom: 5%;
+  box-shadow: 4px 4px 8px var(--neumo-shadow-dark),
+    -4px -4px 8px var(--neumo-shadow-light);
+  padding: 1rem;
+  width: 30vh;
+  text-align: center;
+}
+
+.display-panel:hover,
+.display-panel p:hover {
+  cursor: default;
+}
+
+.display-panel p {
+  margin: 0;
+}
+
+@media screen and (orientation: portrait) {
+
+  /* handle case where width lower than height */
+  body {
+    font-size: 3vw;
+    padding-top: 15vw;
+  }
+
+  #drum-machine {
+    width: 70vw;
+    height: 70vw;
+  }
+
+  .drum-pad {
+    line-height: 12vw;
+  }
+
+  .pad-bank {
+    grid-template-columns: repeat(3, 13vw);
+    margin-top: 10vw;
+    gap: 2vw;
+  }
+
+  .display-panel {
+    margin-top: 5vw;
+    width: 30vw;
+  }
+}
